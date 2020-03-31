@@ -56,7 +56,7 @@ public class PublicService {
     }
 
     private List<AddressDto> avaliableAddressesToSave(PersonResponseDto personResponseDto, Long personId) {
-        if(Objects.nonNull(personResponseDto.getPhones()) && !personResponseDto.getPhones().isEmpty()) {
+        if(Objects.nonNull(personResponseDto.getAddresses()) && !personResponseDto.getAddresses().isEmpty()) {
             personResponseDto.getAddresses().forEach(addressDto -> addressDto.setPersonId(personId));
             return addressFeignService.postAddress(personResponseDto.getAddresses());
         }
